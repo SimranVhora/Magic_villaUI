@@ -1,0 +1,30 @@
+<form [formGroup]="form">
+  <br />
+  <div class="container border p-3">
+    <h1 class="text-primary">Create Villa Number</h1>
+    <hr />
+
+    <div class="row">
+      <div class="col-12 pb-3">
+        <app-textbox [type]="textBoxType.Number" [id]="'villaNo'" placeholder="Villa Number..."
+          [control]="form.controls['villaNumber']" [label]="'Villa Number'">
+        </app-textbox>
+      </div>
+      <div class="col-12 pb-3">
+        <app-drop-down [control]="form.controls['villaIdSelect']" defaultOption="Please Select Villa"
+          [label]="'Select Villa'" [options]="villaOption" />
+      </div>
+      <div class="col-12 pb-3">
+        <app-textboxarea [control]="form.controls['specialDetails']" [id]="'specialServices'"
+          [label]="'Special Service'" placeholder="Special Service" [rows]="5" />
+      </div>
+
+      <div class="col-6 ">
+        <a  class="btn-primary btn form-control" [routerLink]="['/',APP_ROUTES.LAYOUT,APP_ROUTES.VillaNumber]">Back to List</a>
+      </div>
+      <div class="col-6">
+        <input type="submit" value="submit" class="btn btn-success form-control"  (click)="createVillaNumber()"/>
+      </div>
+    </div>
+  </div>
+</form>

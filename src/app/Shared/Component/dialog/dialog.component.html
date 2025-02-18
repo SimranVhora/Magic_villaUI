@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+<mat-dialog-content>
+  <p>{{data.message}}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="center" [class]="'gap-2'">
+	<button mat-raised-button class="btn btn-primary" tabindex="1"  (click)="onConfirm()">{{ data.confirmText || 'Ok' }}</button>
+	<button mat-raised-button mat-dialog-close  class="btn btn-primary" tabindex="-1" (click)="onCancel()">{{data.cancelText || 'Cancel'}}</button>
+</mat-dialog-actions>

@@ -1,0 +1,21 @@
+<ng-container>
+   @if(!hideLabel()) {
+    <label
+      class="form-label fs-6 fw-bolder text-gray-900 mt-1"
+      [ngClass]="{
+        'required': isRequired(),
+      }"
+    >
+      {{ label() }}
+    </label>
+    }
+  <input
+   [type]="type()"
+   [class]="customClass()"
+   [id]="id()"
+   [placeholder]="placeholder()"
+   [formControl]="control()"
+   >
+   <!-- Validation Error Messages -->
+   <app-show-error [control]="control()" [label]="label()"> </app-show-error>
+</ng-container>

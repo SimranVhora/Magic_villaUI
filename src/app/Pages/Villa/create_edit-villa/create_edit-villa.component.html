@@ -1,0 +1,64 @@
+<form [formGroup]="form">
+  <div class="container border p-3">
+    <h1 class="text-primary">{{ (villaId() > 0) ? 'Edit' : 'Create' }} Villa</h1>
+    <hr />
+
+    <div class="row">
+      <div asp-validation-summary="All" class="text-danger"></div>
+
+      <div class="col-6 row pb-3">
+        <app-textbox [type]="textBoxType.Text" [id]="'VillaName'" [placeholder]="'Villa Name...'"
+          [control]="form.controls['villaName']" [label]="'Villa Name'"
+          [disable]="(villaId()>0)">
+        </app-textbox>
+      </div>
+
+      <div class="col-6 row pb-3">
+        <app-textbox [type]="textBoxType.Number" [id]="'Rate'" [placeholder]="'Rate...'"
+          [control]="form.controls['Rate']" [label]="'Rate'">
+        </app-textbox>
+      </div>
+
+      <div class="col-6 row pb-3">
+        <app-textbox [type]="textBoxType.Text " [id]="'ImageURL'" [placeholder]="'Image URL...'"
+          [control]="form.controls['ImageURL']" [label]="'Image URL'">
+        </app-textbox>
+      </div>
+
+      <div class="col-6 row pb-3">
+        <app-textbox [type]="textBoxType.Number " [id]="'Occupancy'" [placeholder]="'Occupancy...'"
+          [control]="form.controls['Occupancy']" [label]="'Occupancy'">
+        </app-textbox>
+      </div>
+
+      <div class="col-6 row pb-3">
+        <app-textbox [type]="textBoxType.Number" [id]="'Sqft'" [placeholder]="'Sqft...'"
+          [control]="form.controls['Sqft']" [label]="'Sqft'">
+        </app-textbox>
+      </div>
+
+      <div class="col-6 row pb-3">
+        <app-textbox [type]="textBoxType.Text" [id]="'Sqft'" [placeholder]="'Amenity...'"
+          [control]="form.controls['Amenity']" [label]="'Amenity'">
+        </app-textbox>
+      </div>
+
+      <div class="col-12 row pb-3">
+        <app-textboxarea [id]="'VillaDescription'" [placeholder]="'Villa Description...'"
+          [control]="form.controls['VillaDescription']" [label]="'Villa Description'">
+        </app-textboxarea>
+      </div>
+        <!-- <div class="col-4 pb-3">
+          <input type="button" value="Reset" class="btn btn-outline-primary form-control" (click)="form.reset()" />
+        </div> -->
+
+      <div class="col-6 pb-3">
+        <input type="submit" value="Submit" class="btn btn-success form-control" (click)="(villaId() == 0) ? createVilla() : editVilla()" />
+      </div>
+      <div class="col-6">
+        <a class="btn-primary btn form-control" [routerLink]="['/',APP_ROUTES.LAYOUT,APP_ROUTES.Villas]">Back to
+          List</a>
+      </div>
+    </div>
+  </div>
+</form>

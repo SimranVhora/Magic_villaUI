@@ -1,0 +1,4 @@
+<button [attr.type]="type()" [ngClass]="[variant,'btn',size]" [disabled]="disabled()" (click)="handleClick($event)">
+  <i *ngIf="icon()" [class]="'bi bi-' + icon()"></i>
+  <span *ngIf="title()">{{title()}}</span>
+</button>

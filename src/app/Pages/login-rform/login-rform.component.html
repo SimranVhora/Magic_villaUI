@@ -1,0 +1,44 @@
+<div>
+  <!-- Reactive driven form -->
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- (ngSubmit)="Login(userName.value,passWord.value)"> -->
+    <div class="container p-4 h-100">
+      <div class="card p-4">
+        <div class="row text-center justify-align-center">
+          <h1>Login</h1>
+        </div>
+
+        <div class="row">
+          @if(error()){
+          <div class="col-6 offset-3 pb-2 ">
+            <div class="alert alert-danger alert-dismissible fade show text-center m-0" role="alert">
+              {{ error() }}
+              <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"
+                (click)="error.set('')"></button>
+            </div>
+          </div>
+          }
+          <div class="col-6 offset-3 pb-2">
+            <app-textbox [type]="textBoxType.Text" [customClass]="'form-control'" [id]="'userNameR'" [placeholder]="'UserName...'"
+              [control]="form.controls.userNameR" [label]="'Username'"  />
+          </div>
+          <div class="col-6 offset-3 pb-2">
+            <app-textbox
+            [type]="textBoxType.Password"
+            [customClass]="'form-control'"
+            [id]="'passwordR'"
+            [placeholder]="'Password...'"
+            [control]="form.controls.passwordR"
+            [label]="'Password'">
+          </app-textbox>
+
+          </div>
+          <div class="col-6 offset-3 pb-2">
+            <button type="submit" class="form-control btn btn-primary m-1 p-1" value="Submit">Login</button>
+            <a class="form-control btn btn-outline-primary m-1 p-1" routerLink="/register-user">Register</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

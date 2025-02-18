@@ -1,0 +1,104 @@
+<div> <!-- class="d-flex justify-content-center align-items-center vh-100" -->
+  <!-- Reactive driven form -->
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- (ngSubmit)="Login(userName.value,passWord.value)"> -->
+    <div class="container p-4 h-100">
+      <div class="card p-4">
+        <div class="row text-center justify-align-center">
+          <h1>Login</h1>
+        </div>
+
+        <div class="row">
+          @if(error()){
+          <div class="col-6 offset-3 pb-2 ">
+            <div class="alert alert-danger alert-dismissible fade show text-center m-0" role="alert">
+              {{ error() }}
+              <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"
+                (click)="error.set('')"></button>
+            </div>
+          </div>
+          }
+          <div class="col-6 offset-3 pb-2">
+            <!-- <app-textbox [type]="'text'" [customClass]="'form-control'" [id]="'userNameR'" [placeholder]="'UserName...'"
+              [control]="form.controls.userNameR" [label]="'Username'"  /> -->
+            <input type="text" class="form-control" id="userNameR" placeholder="UserName..."  name="userNameR"
+              formControlName="userNameR" />
+            <!-- [formControl] = "form.controls.userNameR"  -->
+            @if(getUserNameIsValid){
+            <span class="text-danger">* UserName is required</span>
+            }
+          </div>
+          <div class="col-6 offset-3 pb-2">
+            <!-- <app-textbox [type]="'password'" [customClass]="'form-control'" [id]="'passwordR'" [placeholder]="'Password...'"
+              [control]="form.controls.passwordR" [label]="'Password'"  /> -->
+              <input type="password" class="form-control" id="passwordR" placeholder="Password..."  name="passwordR"
+              formControlName="passwordR" />
+            @if(this.form.controls.passwordR.touched && form.controls.passwordR.hasError('required') ){
+            <span class="text-danger">* Password is required</span>
+            }
+            @if (form.controls.passwordR.hasError('invalidPassword')) {
+            <span class="text-danger">* Password must be at least 8 characters long, and include at least one uppercase
+              letter, one lowercase letter, one number, and one special character.</span>
+            }
+          </div>
+          <div class="col-6 offset-3 pb-2">
+            <!-- <app-button
+            [type]="buttonType.submit"
+            [title]="'Login'"
+            [variant]="buttonVariant.Primary"></app-button> -->
+            <button type="submit" class="form-control btn btn-primary m-1 p-1" value="Submit">Login</button>
+            <a class="form-control btn btn-outline-primary m-1 p-1" routerLink="/register-user">Register</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- template driven form -->
+  <!-- <form #form="ngForm" class="d-none" (ngSubmit)="Login(form)"> -->
+  <!-- (ngSubmit)="Login(userName.value,passWord.value)"> -->
+  <div class="container p-4 h-100 d-none">
+    <div class="card p-4">
+      <div class="row text-center justify-align-center">
+        <h1>Login</h1>
+      </div>
+
+      <div class="row">
+        @if(error()){
+        <div class="col-6 offset-3 pb-2 ">
+          <div class="alert alert-danger alert-dismissible fade show text-center m-0" role="alert">
+            {{ error() }}
+            <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"
+              (click)="error.set('')"></button>
+          </div>
+        </div>
+        <!-- <app-error-modal [title]="'An error occure!'" [message]="error()"></app-error-modal> -->
+        }
+        <div class="col-6 offset-3 pb-2">
+          <input type="text" class="form-control" id="userName" placeholder="UserName..." required name="userName"
+            ngModel #userName="ngModel" />
+          @if(userName.touched && userName.dirty && userName.invalid ){
+          <span *ngIf="passWord.touched && passWord.dirty && passWord.invalid" class="text-danger">* UserName is
+            required</span>
+          }
+          <!-- #userName -->
+          <!-- [(ngModel)] = "userName" -->
+        </div>
+        <div class="col-6 offset-3 pb-2">
+          <input type="password" class="form-control" id="password" placeholder="Password..." required name="passWord"
+            ngModel #passWord="ngModel" />
+          @if(passWord.touched && passWord.dirty && passWord.invalid ){
+          <span class="text-danger">* Password is required</span>
+          }
+          <!-- #passWord -->
+          <!-- [(ngModel)]="passWord" -->
+        </div>
+        <div class="col-6 offset-3 pb-2">
+          <button type="submit" class="form-control btn btn-primary m-1 p-1" value="Submit">Login</button>
+          <!-- userName.value,passWord.value -->
+          <a class="form-control btn btn-outline-primary m-1 p-1">Register</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </form> -->
+</div>

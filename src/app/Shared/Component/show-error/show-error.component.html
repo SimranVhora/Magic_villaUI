@@ -1,0 +1,5 @@
+<ng-container>
+  @if(control().touched && control().dirty && control().invalid){
+  <span class="text-danger">{{ listOfErrors()[0] }}</span>
+  }
+</ng-container>

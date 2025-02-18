@@ -1,0 +1,40 @@
+<!-- <img class="d-block w-100" src="images/home/confirmation.jpg" alt="" /> -->
+<ng-template #noVillas>
+<div class="row m-2 ">
+  <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+    Villas not available
+  </div>
+</div>
+</ng-template>
+<div  *ngIf="villas().length > 0; else noVillas;" class="row row-cols-1 row-cols-md-2 g-4" style="--bs-gutter-x: 0">
+  @for (villa of villas(); track villa.villaId) {
+  <div class="col">
+    <div class="card p-2 m-2">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img class="d-block w-max-300px" style="border-radius: 20px; width: 300px;" [src]="villa.imageURL"
+            [alt]="villa.villaName" />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h3 class="card-text">{{ villa.villaName }}</h3>
+            <p class="card-text">
+              <small class="text-muted">Max Occupancy: {{ villa.occupancy }} adult</small>
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Villa Size: {{ villa.sqft }} sqft</small>
+            </p>
+            <a class="btn btn-primary from-control btn-block">Book</a>
+            <span class="card-text float-end font-weight-bold pt-1" style="font-size: 25px;">
+              USD
+              <span style="border-bottom: 1px solid #ff6a00">
+                ${{ villa.rate }}
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</div>

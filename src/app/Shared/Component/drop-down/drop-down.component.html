@@ -1,0 +1,14 @@
+<ng-container>
+  @if(!hideLabel()) {
+  <label class="form-label fs-6 fw-bold text-gray-700">{{ label() }}</label>
+  }
+  <select [id]="id()" [class]="customeClass()" aria-label="Default select example" [formControl]="control()">
+    <option value="">{{ defaultOption() }}</option>
+    @for (option of options(); track $index) {
+      <option [value]="option.id">{{option.text}}</option>
+    }
+  </select>
+
+   <!-- Validation Error Messages -->
+   <app-show-error [control]="control()" [label]="label()"> </app-show-error>
+</ng-container>

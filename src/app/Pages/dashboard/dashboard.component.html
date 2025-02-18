@@ -1,0 +1,27 @@
+<header>
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark box-shadow mb-3">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" >MagicVilla_Web</a>
+      <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+        <ul class="navbar-nav flex-grow-1">
+          <li class="nav-item">
+            <a class="nav-link text-white active " [routerLink]="'/layout/home'"  >Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  text-white" [routerLink]="'/layout/indexVilla'" >Villas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" >Villa Number</a>
+          </li>
+          <li class="nav-item">
+
+          </li>
+        </ul>
+        <a class="btn btn-primary text-white"  (click)="logout()">Logout</a>
+      </div>
+    </div>
+  </nav>
+</header>

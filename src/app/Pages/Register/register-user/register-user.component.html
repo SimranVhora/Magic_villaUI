@@ -1,0 +1,81 @@
+<form [formGroup]="form" method="post">
+  <div class="container border p-4">
+    <div class="row text-center">
+      <h1>Register</h1>
+    </div>
+    <div class="row">
+      @if(error()){
+      <div class="col-6 offset-3 pb-2 ">
+        <div class="alert alert-danger alert-dismissible fade show text-center m-0" role="alert">
+          {{ error() }}
+          <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"
+            (click)="error.set('')"></button>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="row">
+      <div class="col-6 offset-3 pb-2">
+        <app-textbox
+        [type] = "textBoxType.Text"
+        [customClass] = "'form-control'"
+        [id] = "'UserName'"
+        [label] = "'UserName'"
+        [control]="form.controls['userName']"
+        [placeholder]="'User Name...'"
+        [hideLabel]="true"></app-textbox>
+      </div>
+      <div class="col-6 offset-3 pb-2">
+        <app-textbox
+        [type] = "textBoxType.Text"
+        [customClass] = "'form-control'"
+        [id] = "'Name'"
+        [label] = "'Name'"
+        [control]="form.controls['name']"
+        [placeholder]="'Name...'"
+        [hideLabel]="true"></app-textbox>
+      </div>
+
+      <div class="col-6 offset-3 pb-2">
+        <app-textbox
+        [type] = "textBoxType.Password"
+        [customClass] = "'form-control'"
+        [id] = "'Password'"
+        [label] = "'Password'"
+        [control]="form.controls['password']"
+        [placeholder]="'Password...'"
+        [hideLabel]="true"></app-textbox>
+      </div>
+      <div class="col-6 offset-3 pb-2">
+        <app-textbox
+        [type] = "textBoxType.Password"
+        [customClass] = "'form-control'"
+        [id] = "'confirmPassword'"
+        [label] = "'Confirm Password'"
+        [control]="form.controls['confirmPassword']"
+        [placeholder]="'Confirm Password...'"
+        [hideLabel]="true"></app-textbox>
+      </div>
+      <div class="col-6 offset-3 pb-2">
+        <app-drop-down id="role"
+        [control]="form.controls['userRole']"
+        [options]="userRoleOptions"
+        [label]="'User Role'"></app-drop-down>
+        <!-- <select id="role" class="form-select" aria-label="Default select example" formControlName="userRole">
+          <option value="">Select User Role</option>
+          <option value="admin">admin</option>
+          <option value="user">user</option>
+        </select>
+        @if (form.controls['userRole'].touched && form.controls['userRole'].dirty && form.controls['userRole'].invalid){
+        <span class="text-danger">* User role is required.</span>
+        } -->
+      </div>
+      <div class="col-6 offset-3 pb-2">
+        <button [attr.type]="'submit'" class="form-control btn btn-primary m-1" value="Submit"
+          (click)="RegisterUser()">Register</button>
+        <!-- <button type="button" class="form-control btn btn-outline-primary m-1" (click)="form.reset();">Reset</button> -->
+        <button type="button" class="form-control btn btn-outline-primary m-1" routerLink="/login">Back</button>
+      </div>
+    </div>
+  </div>
+</form>

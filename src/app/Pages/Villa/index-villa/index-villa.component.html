@@ -1,0 +1,46 @@
+<div class="container p-4 border">
+  <div class="row pb-2">
+    <div class="col">
+      <h2 class="text-primary">Villa List</h2>
+    </div>
+    <div class="col text-end pt-1">
+      <a class="btn btn-outline-primary" [routerLink]="['/',APP_ROUTES.LAYOUT,APP_ROUTES.CreateVilla]"><i
+          class="bi bi-plus-square-fill"></i> Create New Villa</a>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Occupancy</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(villa of villas(); track villa.villaId)
+      {
+      <tr>
+        <td>{{villa.villaName}}</td>
+        <td>{{ villa.occupancy }}</td>
+        <td>{{villa.rate | currency:'USD'}}</td>
+        <td>
+          <a class="btn btn-success m-1 p-1"> <i class="bi bi-pencil-square" (click)="editVilla(villa.villaId)"></i></a>
+          <a class="btn btn-danger p-1 m-1" (click)="openCancelDialogbox(villa.villaId)"><i class="bi bi-trash"></i></a>
+        </td>
+      </tr>
+      }
+    </tbody>
+    <tfoot>
+      @if(totalCount() > 0){
+      <mat-paginator [length]="totalCount()" [pageSize]="pageSize()"
+        [pageSizeOptions]="pageSizeOptions"
+        aria-label="Select page" (page)="log($event)">
+      </mat-paginator>
+      }
+      @else{
+        <div class="fw-bolder fs-6 text-center justify-align-center">No record found</div>
+      }
+    </tfoot>
+  </table>
+</div>
