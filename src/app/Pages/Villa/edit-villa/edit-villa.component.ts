@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-edit-villa',
   imports: [],
   templateUrl: './edit-villa.component.html',
+  standalone:true,
   styleUrl: './edit-villa.component.css'
 })
 export class EditVillaComponent implements OnInit {

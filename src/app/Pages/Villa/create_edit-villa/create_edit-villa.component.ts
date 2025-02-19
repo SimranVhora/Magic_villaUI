@@ -16,6 +16,7 @@ import { CustomValidators } from '../../../utils/validators';
   selector: 'app-create-villa',
   imports: [TextboxComponent, ReactiveFormsModule, TextboxareaComponent, RouterLink],
   templateUrl: './create_edit-villa.component.html',
+  standalone:true,
   styleUrl: './create_edit-villa.component.css'
 })
 export class CreateVillaComponent {

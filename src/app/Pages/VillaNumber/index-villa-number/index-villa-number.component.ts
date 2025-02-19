@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-index-villa-number',
+  standalone:true,
   imports: [RouterLink, MatPaginatorModule],
   templateUrl: './index-villa-number.component.html',
   styleUrl: './index-villa-number.component.css'

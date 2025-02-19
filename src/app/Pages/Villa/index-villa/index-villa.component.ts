@@ -15,7 +15,8 @@ import { APP_CONSTANTS } from '../../../Shared/Cosntents/message-constants';
   selector: 'app-index-villa',
   imports: [CurrencyPipe, MatPaginatorModule, CommonModule, RouterLink],
   templateUrl: './index-villa.component.html',
-  styleUrl: './index-villa.component.css'
+  styleUrl: './index-villa.component.css',
+  standalone:true,
 })
 export class IndexVillaComponent {
   villas = signal<Villa[]>([])

@@ -8,7 +8,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-home-villa',
   templateUrl: './home-villa.component.html',
   styleUrl: './home-villa.component.css',
-  imports:[CommonModule]
+  imports:[CommonModule],
+  standalone:true,
 })
 export class HomeVillaComponent {
   villas= signal<Villa[]>([])

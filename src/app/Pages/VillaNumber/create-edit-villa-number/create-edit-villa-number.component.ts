@@ -19,6 +19,7 @@ import { CustomValidators } from '../../../utils/validators';
 
 @Component({
   selector: 'app-create-edit-villa-number',
+  standalone:true,
   imports: [ReactiveFormsModule, TextboxComponent, TextboxareaComponent, DropDownComponent,RouterLink],
   templateUrl: './create-edit-villa-number.component.html',
   styleUrl: './create-edit-villa-number.component.css'
