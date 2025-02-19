@@ -5,14 +5,15 @@ import { LoaderService } from '../../../Services/loader-service.service';
 
 @Component({
   selector: 'app-loader',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './loader.component.html',
   styleUrl: './loader.component.css'
 })
 export class LoaderComponent implements OnInit {
   private _loadingSubject = new BehaviorSubject<boolean>(false);
-  isLoading:boolean = false;
-  constructor(private _loader: LoaderService,private changeDetectorRef:ChangeDetectorRef) {
+  isLoading: boolean = false;
+  constructor(private _loader: LoaderService, private changeDetectorRef: ChangeDetectorRef) {
 
   }
   ngOnInit(): void {
